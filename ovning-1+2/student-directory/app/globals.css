@@ -25,11 +25,3 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-ul {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
