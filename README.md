@@ -270,3 +270,89 @@ Varje användare ska länka till `/dashboard/users/[id]`.
 - `not-found.tsx`
 - `generateStaticParams()`
 - Route group för dashboard
+
+
+## Uppgift 5: Eventplattform med dynamiska routes
+
+### Del 1 — Bygg eventplattform med dynamiska routes
+
+#### Mål
+
+Fokus på:
+
+- App Router
+- Server Components
+- `[slug]`
+- `layout.tsx`
+- `not-found.tsx`
+- Strukturering av routes
+
+#### Scenario
+
+Bygg en eventplattform där användare kan se olika events.
+
+Sidor som ska finnas:
+
+- `/`
+- `/events`
+- `/events/frontend-conference`
+- `/events/react-summit`
+- `/events/nextjs-live`
+
+#### Krav
+
+- Skapa `/events`: visa alla events
+- Skapa `/events/[slug]`: visa ett event baserat på url
+- Använd `notFound()`: `events/not-found.tsx` om ett event inte existerar
+- Använd `events/layout.tsx`: layouten ska innehålla gemensam navigation/sidebar (t.ex. lista på events, kategorier, filterpanel)
+
+#### Server vs Client Components
+
+- Eventdetaljer ska vara Server Components
+- Någon interaktiv del ska vara Client Component (t.ex. favoritknapp, expandera sidebar, filtrering)
+
+#### Reflektionsfrågor
+
+1. Varför passar `[slug]` bra här?
+2. Varför bör eventinformationen renderas på servern?
+3. När behövs `"use client"`?
+4. Vad är fördelen med `layout.tsx`?
+
+---
+
+### Del 2 — Nested event routes och avancerad routing
+
+#### Mål
+
+Fokus på:
+
+- `[...slug]`
+- `[[...slug]]`
+- `error.tsx`
+- Nested routing
+- Breadcrumbs
+- Bättre route-struktur
+
+#### Scenario
+
+Eventplattformen växer. Events ska nu kunna organiseras efter kategori och stad.
+
+Exempel på routes:
+
+- `/events/conferences/frontend-conf`
+- `/events/workshops/nextjs-auth`
+- `/events/sweden/stockholm/react-night`
+- `/events/sweden/gothenburg/typescript-day`
+
+#### Krav
+
+1. **Nested routes** — sidan ska stödja flera nivåer av URL:er
+2. **Breadcrumbs från url:en** — visa `Hem → Sida 1 → Sida 2` längst upp. Tips: använd segmenteringen från `params`
+3. **Anpassat `error.tsx`** — visas om ett fel kastas i route-segmentet
+
+#### Reflektionsfrågor
+
+1. Varför valde du `[...slug]` eller `[[...slug]]`?
+2. Vilka komponenter är server/client?
+3. Varför ligger layouterna där de ligger?
+4. Hur fungerar routing:en?
