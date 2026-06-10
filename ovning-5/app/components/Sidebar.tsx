@@ -13,8 +13,8 @@ export function Sidebar() {
         {open && (
           <ul>
             {events.map((e) => (
-              <li key={e.slug}>
-                <Link href={`/events/${e.slug}`}>{e.title}</Link>
+              <li key={e.segments.join('/')}>
+                <Link href={`/events/${e.segments.join('/')}`}>{e.title}</Link>
               </li>
             ))}
           </ul>
